@@ -47,8 +47,16 @@ const MachinesPage: React.FC = () => {
             className="bg-white rounded shadow p-3 sm:p-4 cursor-pointer hover:bg-green-50 transition border flex flex-col"
             onClick={() => setSelected(machine)}
           >
-            {/* サムネイル画像（スマホ対応: 高さ調整） */}
-            <img src={machine.thumbnail_url} alt={machine.name + 'サムネイル'} className="w-full h-24 sm:h-32 object-cover rounded mb-2" />
+            {/* 動画埋め込み（YouTube等） */}
+            <div className="w-full h-24 sm:h-32 mb-2">
+              <iframe
+                src={machine.video_url}
+                title={machine.name + '動画'}
+                className="w-full h-full rounded"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
             {/* 名称・メーカー・価格 */}
             <h2 className="text-base sm:text-lg font-bold mb-1 text-gray-900 break-words">{machine.name}</h2>
             <p className="text-xs sm:text-sm text-gray-600 mb-1 break-words">メーカー: {machine.maker}</p>
