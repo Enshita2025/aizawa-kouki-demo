@@ -58,14 +58,13 @@ const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
   <p className="text-base sm:text-lg font-bold text-red-700 mb-1">希望販売価格: ¥{machine.price.toLocaleString()} 円</p>
   {/* 在庫（常に在庫あり表示） */}
   <p className="text-xs sm:text-sm font-bold text-blue-700 mb-2">在庫あり</p>
-        {/* 動画埋め込み（YouTube iframe方式） */}
-        <div className="mb-4 w-full rounded overflow-hidden shadow" style={{ minHeight: 300 }}>
-          {/* machine.video_urlはYouTube埋め込みURL（例: https://www.youtube.com/embed/動画ID）を格納してください */}
+        {/* 動画埋め込み（YouTube iframe方式・高さ拡大・ページ内再生のみ） */}
+        <div className="mb-4 w-full min-h-96 sm:min-h-[500px] rounded overflow-hidden shadow">
+          {/* min-h-96: 24rem(384px), sm:min-h-[500px]: 500px スマホ・PC両対応でさらに高さを広げる */}
           <iframe
-            src={machine.video_url}
+            src={machine.video_url + '?rel=0&modestbranding=1&showinfo=0&controls=1'}
             title={machine.name + '動画'}
-            width="100%"
-            height="100%"
+            className="w-full h-96 sm:h-[500px] rounded"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

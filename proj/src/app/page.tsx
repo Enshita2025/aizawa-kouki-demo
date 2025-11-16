@@ -49,7 +49,7 @@ export default function Home() {
             {/* 動画埋め込み（YouTube等）: 高さを大きくし、ページ内再生のみ */}
             <div className="w-full min-h-96 sm:min-h-[500px] mb-2 rounded overflow-hidden shadow">
               <iframe
-                src={machine.video_url + '?rel=0&modestbranding=1&showinfo=0'}
+                src={machine.video_url + '?rel=0&modestbranding=1&showinfo=0&controls=1'}
                 title={machine.name + '動画'}
                 className="w-full h-96 sm:h-[500px] rounded"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
