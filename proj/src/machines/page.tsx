@@ -24,7 +24,11 @@ const MachinesPage: React.FC = () => {
   return (
   <div className="w-full min-h-screen bg-white max-w-3xl mx-auto p-2 sm:p-4" style={{ width: '100%' }}>
   {/* タイトル（スマホ対応・中央・余白調整） */}
-  <h1 className="text-xl sm:text-2xl font-bold mb-6 text-center text-gray-900">販売管理機一覧</h1>
+  <h1 className="text-xl sm:text-2xl font-bold mb-3 text-center text-gray-900">販売管理機一覧</h1>
+  {/* タイトル下に画像（中央・スマホ対応） */}
+  <div className="flex justify-center mb-6">
+    <img src="/images/sample.png" alt="サンプル画像" className="w-48 sm:w-64 rounded shadow" />
+  </div>
   {/* 管理機カード一覧（スマホ対応: 1列→2列, 余白調整） */}
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {machines.map((machine) => (
