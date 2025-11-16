@@ -46,14 +46,14 @@ export default function Home() {
             className="bg-white rounded shadow p-3 sm:p-4 cursor-pointer hover:bg-green-50 transition border flex flex-col"
             onClick={() => setSelected(machine)}
           >
-            {/* 動画埋め込み（YouTube等） */}
-            <div className="w-full h-24 sm:h-32 mb-2">
+            {/* 動画埋め込み（YouTube等）: 高さを大きくし、ページ内再生のみ */}
+            <div className="w-full min-h-96 sm:min-h-[500px] mb-2 rounded overflow-hidden shadow">
               <iframe
                 src={machine.video_url + '?rel=0&modestbranding=1&showinfo=0'}
                 title={machine.name + '動画'}
-                className="w-full h-full rounded"
+                className="w-full h-96 sm:h-[500px] rounded"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                // allowFullScreenを削除
+                allowFullScreen
               />
             </div>
             {/* 名称・メーカー・価格 */}
