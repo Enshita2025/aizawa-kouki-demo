@@ -3,6 +3,7 @@
 // すべての行に日本語コメントを記載しています
 
 import React, { useEffect, useState } from 'react'; // Reactとフックをインポート
+import Image from 'next/image'; // 画像最適化コンポーネント
 import MachineModal from '@/components/MachineModal'; // モーダルコンポーネントをインポート
 import { Machine } from '../../data/mock-machines'; // Machine型をインポート
 
@@ -26,8 +27,16 @@ const MachinesPage: React.FC = () => {
   {/* タイトル（スマホ対応・中央・余白調整） */}
   <h1 className="text-xl sm:text-2xl font-bold mb-3 text-center text-gray-900">販売管理機一覧</h1>
   {/* タイトル下に画像（中央・スマホ対応） */}
+  {/* タイトル下に画像（next/imageで最適化・Vercel対応） */}
   <div className="flex justify-center mb-6">
-    <img src="/images/sample.png" alt="サンプル画像" className="w-48 sm:w-64 rounded shadow" />
+    <Image
+      src="/images/sample.png"
+      alt="サンプル画像"
+      width={256} // w-64相当
+      height={160} // 適宜調整
+      className="rounded shadow"
+      priority
+    />
   </div>
   {/* 管理機カード一覧（スマホ対応: 1列→2列, 余白調整） */}
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
