@@ -58,12 +58,15 @@ const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
   <p className="text-base sm:text-lg font-bold text-red-700 mb-1">希望販売価格: ¥{machine.price.toLocaleString()} 円</p>
   {/* 在庫（常に在庫あり表示） */}
   <p className="text-xs sm:text-sm font-bold text-blue-700 mb-2">在庫あり</p>
-        {/* 動画埋め込み */}
-        <div className="mb-4">
+        {/* 動画埋め込み（YouTube iframe方式） */}
+        <div className="mb-4 w-full rounded overflow-hidden shadow" style={{ minHeight: 300 }}>
+          {/* machine.video_urlはYouTube埋め込みURL（例: https://www.youtube.com/embed/動画ID）を格納してください */}
           <iframe
             src={machine.video_url}
             title={machine.name + '動画'}
-            className="w-full h-32 sm:h-40 rounded"
+            width="100%"
+            height="100%"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -71,7 +74,7 @@ const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
         {/* 仕様（specs） */}
         <div className="mb-4">
           <h3 className="text-sm sm:text-base font-bold text-purple-800 mb-1">仕様</h3>
-          <ul className="text-xs sm:text-sm font-semibold text-gray-900 break-words">
+          <ul className="text-xs sm:text-sm font-semibold text-gray-900 wrap-break-word">
             <li>エンジン: {machine.specs.engine}</li>
             <li>出力: {machine.specs.power}</li>
             <li>重量: {machine.specs.weight}</li>
@@ -81,7 +84,7 @@ const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
           </ul>
         </div>
         {/* 説明文 */}
-  <p className="mb-4 text-xs sm:text-base font-bold text-orange-800 break-words">{machine.description}</p>
+  <p className="mb-4 text-xs sm:text-base font-bold text-orange-800 wrap-break-word">{machine.description}</p>
         {/* 見積書PDF出力ボタン（下部に追加） */}
         {/* 見積内容を別モーダルで表示し、コピーできるボタン */}
         <button
