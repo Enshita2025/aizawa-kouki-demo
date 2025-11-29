@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen bg-white max-w-3xl mx-auto p-2 sm:p-4" style={{ width: '100%' }}>
       {/* タイトル（スマホ対応・中央・余白調整） */}
-      <h1 className="text-xl sm:text-2xl font-bold mb-3 text-center text-gray-900">販売管理機一覧</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-3 text-center text-gray-900">（デモ）販売管理機一覧</h1>
       {/* タイトル下に画像（next/imageで最適化・Vercel対応） */}
       <div className="flex justify-center mb-6">
         <Image
